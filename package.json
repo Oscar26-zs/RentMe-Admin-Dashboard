@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",
+    "@tanstack/react-router": "^1.133.3",
     "firebase": "^12.4.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -19,6 +20,7 @@
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@swc/core": "^1.13.5",
+    "@tanstack/router-plugin": "^1.133.3",
     "@types/node": "^24.6.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
