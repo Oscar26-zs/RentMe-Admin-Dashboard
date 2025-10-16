@@ -1,11 +1,10 @@
-import './App.css'
+import './app/App.css'
+import { AppRouterProvider } from './app/router'
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+     <AppRouterProvider />
     </>
   )
 }
