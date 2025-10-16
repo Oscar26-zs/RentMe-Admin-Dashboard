@@ -39,11 +39,8 @@ const Sidebar = () => {
   return (
    <aside
       className={[
-        // ocupa ancho real y no permite que el main lo pise
         "shrink-0",
-        // se mantiene visible al hacer scroll
         "sticky top-0 h-svh",
-        // estética
         "bg-gradient-to-b from-[#52655B]/10 to-[#52655B]/5",
         "transition-all duration-300 ease-in-out",
         collapsed ? "w-16" : "w-64",
@@ -53,13 +50,13 @@ const Sidebar = () => {
         <div className="flex items-center justify-between mb-6 px-2">
           {!collapsed && (
             <h2 className="text-xl font-bold text-[#52655B] whitespace-nowrap">
-              Costa Rica RentMe
+              Sistema RentMe
             </h2>
           )}
           {/* El toggle solo visible en sm+ porque en xs el sidebar está oculto */}
           <button
             onClick={() => setCollapsed(!collapsed)}
-            className="p-1.5 rounded-lg hover:bg-[#52655B]/10 text-[#52655B]"
+            className="p-1.5 rounded-lg hover:cursor-pointer hover:bg-[#52655B]/10 text-[#52655B]"
           >
             <Menu size={20} />
           </button>
@@ -70,7 +67,7 @@ const Sidebar = () => {
           <NavItem icon={<Users size={16} />} text="Usuarios"     to="/users"       collapsed={collapsed} />
           <NavItem icon={<BedDouble size={16} />} text="Alojamientos" to="/products" collapsed={collapsed} />
           <NavItem icon={<FileText size={16} />} text="Ventas"    to="/orders"      collapsed={collapsed} />
-          <NavItem icon={<Send size={16} />} text="Reservas"      to="/settings"    collapsed={collapsed} />
+          <NavItem icon={<Send size={16} />} text="Reservas"      to="/reservations"    collapsed={collapsed} />
         </nav>
 
         <div className="mt-auto">
