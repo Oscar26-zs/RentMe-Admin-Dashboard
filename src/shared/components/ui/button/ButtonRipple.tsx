@@ -57,8 +57,8 @@ export function ButtonRipple({
 
   const variants = {
     default: `bg-gray-100 text-gray-900 hover:bg-gray-200/90 hover:scale-105 ${isPressed ? 'bg-gray-300/90' : ''}`,
-    primary: `bg-[#52655B] text-white hover:bg-[#52655B]/90 hover:scale-105 ${isPressed ? 'bg-[#52655B]/80' : ''}`,
-    outline: `border-2 border-[#52655B] text-[#52655B] hover:scale-105`,
+    primary: `bg-[#52655B] text-white hover:bg-[#52655B]/90 hover:cursor-pointer hover:scale-105 ${isPressed ? 'bg-[#52655B]/80' : ''}`,
+    outline: `border-2 border-[#52655B] text-[#52655B] hover:cursor-pointer hover:scale-105`,
     ghost: `hover:bg-gray-100/50 hover:scale-105 ${isPressed ? 'bg-gray-200/50' : ''}`,
   } as const
 

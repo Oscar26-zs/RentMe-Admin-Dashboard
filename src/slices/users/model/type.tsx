@@ -1,7 +1,7 @@
 export interface CreateUser {
   email: string;
   nombre: string;
-  role: 'admin' | 'propietario' | 'inquilino';
+  role: 'admin' | 'editor';
   active: boolean;
 }
 

@@ -8,8 +8,8 @@ export const usuarioService = {
   async create(usuario: CreateUser): Promise<string> {
     const docRef = await addDoc(collection(db, USUARIOS_COLLECTION), {
       ...usuario,
-      createdAt: Timestamp.now(),
-      updatedAt: Timestamp.now()
+      fechaCreacion: Timestamp.now(),
+      fechaActualizacion: Timestamp.now()
     });
     return docRef.id;
   },

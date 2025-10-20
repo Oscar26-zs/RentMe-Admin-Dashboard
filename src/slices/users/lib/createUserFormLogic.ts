@@ -5,12 +5,13 @@ import type { CreateUser } from '../model/type';
 const initialFormData: CreateUser = {
   email: '',
   nombre: '',
-  role: 'inquilino',
+  role: 'editor',
   active: true,
 };
 
-export const useCreateUserForm = () => {
+export const useCreateUserSheet = () => {
   const { mutate, isPending } = useCreateUser();
+  const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState<CreateUser>(initialFormData);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -30,8 +31,19 @@ export const useCreateUserForm = () => {
     setFormData(initialFormData);
   };
 
+  
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    handleSubmit(e);
+    setOpen(false);
+    resetForm();
+  };
+
+
   return {
     formData,
+    open,
+    setOpen,
+    onSubmit,
     isPending,
     handleSubmit,
     handleInputChange,

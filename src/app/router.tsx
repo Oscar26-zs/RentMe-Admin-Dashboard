@@ -15,7 +15,7 @@ import {
 const queryClient = new QueryClient()
 const NotFoundPage = lazy(() => import('../app/NotFoundPage'))
 const HomePage = lazy(() => import('../app/HomePage'))
-const RegisterPage = lazy(() => import('../slices/users/pages/RegisterPage'))
+const UserPage = lazy(() => import('../slices/users/pages/UserPage'))
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -40,16 +40,16 @@ const homeRoute = createRoute({
   component: HomePage
 })
 
-const registerRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/register',
-  component: RegisterPage
+const userRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: '/users',
+  component: UserPage
 })
 
 const routeTree = rootRoute.addChildren([
   layoutRoute,
-  registerRoute,
   homeRoute,
+  userRoute
 ])
 
 // Configuración del router
