@@ -11,8 +11,11 @@ import {
   QueryClient,
   QueryClientProvider
 } from '@tanstack/react-query'
+import { Toaster } from '@/shared/components/ui'
+import emailjs from '@emailjs/browser'
 
 const queryClient = new QueryClient()
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
 const NotFoundPage = lazy(() => import('../app/NotFoundPage'))
 const HomePage = lazy(() => import('../app/HomePage'))
 const UserPage = lazy(() => import('../slices/users/pages/UserPage'))
@@ -20,9 +23,10 @@ const UserPage = lazy(() => import('../slices/users/pages/UserPage'))
 const rootRoute = createRootRoute({
   component: () => (
     <QueryClientProvider client={queryClient}>
-    <Suspense fallback={<div>Cargando...</div>}>
-      <Outlet />
-    </Suspense>
+      <Suspense fallback={<div>Cargando...</div>}>
+        <Outlet />
+        <Toaster />
+      </Suspense>
     </QueryClientProvider>
   ),
   notFoundComponent: NotFoundPage
@@ -35,7 +39,7 @@ const layoutRoute = createRoute({
 })
 
 const homeRoute = createRoute({
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => layoutRoute,
   path: '/',
   component: HomePage
 })
@@ -47,9 +51,10 @@ const userRoute = createRoute({
 })
 
 const routeTree = rootRoute.addChildren([
-  layoutRoute,
-  homeRoute,
-  userRoute
+  layoutRoute.addChildren([
+    homeRoute,
+    userRoute
+  ])
 ])
 
 // Configuración del router

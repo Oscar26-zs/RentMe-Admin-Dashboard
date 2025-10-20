@@ -25,7 +25,7 @@ export const CreateUserSheet = ({ children }: CreateUserSheetProps) => {
           </ButtonRipple>
         )}
       </SheetTrigger>
-      <SheetContent className="px-4">
+      <SheetContent className="px-7">
         <SheetHeader>
           <SheetTitle>Crear Nuevo Usuario</SheetTitle>
           <SheetDescription>

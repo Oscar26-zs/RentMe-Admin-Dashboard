@@ -10,3 +10,10 @@ export interface User extends CreateUser {
   fechaCreacion: Date;
   fechaActualizacion: Date;
 }
+
+export interface SendWelcomeEmailParams {
+  userName: string;
+  userEmail: string;
+  userRole: string;
+  otpCode: string;
+}
