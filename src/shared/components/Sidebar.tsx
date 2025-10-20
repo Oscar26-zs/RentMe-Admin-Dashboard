@@ -65,8 +65,8 @@ const Sidebar = () => {
         <nav className="space-y-1">
           <NavItem icon={<Home size={16} />} text="Dashboard"    to="/"            collapsed={collapsed} />
           <NavItem icon={<Send size={16} />} text="Reservas"      to="/reservations"    collapsed={collapsed} />
-          <NavItem icon={<BedDouble size={16} />} text="Alojamientos" to="/products" collapsed={collapsed} />
-          <NavItem icon={<FileText size={16} />} text="Ventas"    to="/orders"      collapsed={collapsed} />
+          <NavItem icon={<BedDouble size={16} />} text="Alojamientos" to="/accommodations" collapsed={collapsed} />
+          <NavItem icon={<FileText size={16} />} text="Ventas"    to="/sales"      collapsed={collapsed} />
           <NavItem icon={<Users size={16} />} text="Usuarios"     to="/users"       collapsed={collapsed} />
         </nav>
 

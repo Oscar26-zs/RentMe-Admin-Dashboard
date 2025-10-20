@@ -19,6 +19,9 @@ emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
 const NotFoundPage = lazy(() => import('../app/NotFoundPage'))
 const HomePage = lazy(() => import('../app/HomePage'))
 const UserPage = lazy(() => import('../slices/users/pages/UserPage'))
+const SalesPage = lazy(() => import('../slices/sales/SalesPage'))
+const AccommodationsPage = lazy(() => import('../slices/accomodations/AccommodationsPage'))
+const ReservationsPage = lazy(() => import('../slices/reservations/ReservationsPage'))
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -50,10 +53,31 @@ const userRoute = createRoute({
   component: UserPage
 })
 
+const saleRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: '/sales',
+  component: SalesPage
+})
+
+const accommodationsRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: '/accommodations',
+  component: AccommodationsPage
+})
+
+const reservationsRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: '/reservations',
+  component: ReservationsPage
+})
+
 const routeTree = rootRoute.addChildren([
   layoutRoute.addChildren([
     homeRoute,
-    userRoute
+    userRoute,
+    saleRoute,
+    accommodationsRoute,
+    reservationsRoute
   ])
 ])
 
